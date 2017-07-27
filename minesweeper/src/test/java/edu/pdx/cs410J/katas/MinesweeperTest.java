@@ -39,7 +39,7 @@ public class MinesweeperTest {
     board.addRow("..");
   }
 
-  
+  @Ignore
   @Test
   public void oneSquareWithMine() {
     Minesweeper board = new Minesweeper(1, 1);
