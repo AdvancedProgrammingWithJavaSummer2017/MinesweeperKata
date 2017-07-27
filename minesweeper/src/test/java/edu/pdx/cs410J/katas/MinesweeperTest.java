@@ -11,25 +11,21 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class MinesweeperTest {
 
-  @Ignore
   @Test(expected = ZeroSizedBoardException.class)
   public void zeroSizedBoardThrowException() {
     new Minesweeper(0, 0);
   }
 
-  @Ignore
   @Test(expected = ZeroSizedBoardException.class)
   public void boardWithZeroRowsThrowsException() {
     new Minesweeper(0, 5);
   }
 
-  @Ignore
   @Test(expected = ZeroSizedBoardException.class)
   public void boardWithZeroColumnsThrowsException() {
     new Minesweeper(5, 0);
   }
 
-  @Ignore
   @Test(expected = RaggedBoardException.class)
   public void raggedInputRowThrowsException() {
     Minesweeper board = new Minesweeper(1, 2);
