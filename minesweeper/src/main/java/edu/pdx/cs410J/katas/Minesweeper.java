@@ -25,9 +25,13 @@ public class Minesweeper  {
   }
 
   public String solve() {
-
-
-
+    for (int i = 0; i < row; i++) {
+      for (int j = 0; j < col; j++) {
+        if (board[i][j] != '*') {
+          board[i][j] = (char) (countMines(i, j) + 48);
+        }
+      }
+    }
 
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < row; i++) {
@@ -40,6 +44,33 @@ public class Minesweeper  {
     }
     return sb.toString();
   }
-
+  private int countMines(int row, int col) {
+    int count = 0;
+    if (row - 1 >= 0 && col - 1 >= 0 && board[row - 1][col - 1] == '*') {
+      count++;
+    }
+    if (row - 1 >= 0 && board[row - 1][col] == '*') {
+      count++;
+    }
+    if (row - 1 >= 0 && col + 1 < this.col && board[row - 1][col + 1] == '*') {
+      count++;
+    }
+    if (col + 1 < this.col && board[row][col + 1] == '*') {
+      count++;
+    }
+    if (row + 1 < this.row && col + 1 < this.col && board[row + 1][col + 1] == '*') {
+      count++;
+    }
+    if (row + 1 < this.row && board[row + 1][col] == '*') {
+      count++;
+    }
+    if (row + 1 < this.row && col - 1 >= 0 && board[row + 1][col - 1] == '*') {
+      count++;
+    }
+    if (col - 1 >= 0 && board[row][col - 1] == '*') {
+      count++;
+    }
+    return count;
+  }
 
 }
