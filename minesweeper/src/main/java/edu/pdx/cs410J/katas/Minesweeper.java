@@ -1,8 +1,12 @@
 package edu.pdx.cs410J.katas;
 
+
+
 public class Minesweeper  {
 
-  public Minesweeper(int row, int column) {
+  public Minesweeper(int rowCount, int columnCount) {
+    int numberFields = rowCount * columnCount;
+
 
   }
 
