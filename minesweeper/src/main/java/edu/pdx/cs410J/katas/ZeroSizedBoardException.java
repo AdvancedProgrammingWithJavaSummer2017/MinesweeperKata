@@ -1,4 +1,4 @@
 package edu.pdx.cs410J.katas;
 
-class ZeroSizedBoardException extends RuntimeException {
+public class ZeroSizedBoardException extends Throwable {
 }
