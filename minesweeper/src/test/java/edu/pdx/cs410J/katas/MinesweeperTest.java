@@ -32,7 +32,6 @@ public class MinesweeperTest {
     board.addRow(".");
   }
 
-  @Ignore
   @Test(expected = RaggedBoardException.class)
   public void raggedInputColumnThrowsException() {
     Minesweeper board = new Minesweeper(2, 1);
@@ -40,7 +39,6 @@ public class MinesweeperTest {
     board.addRow("..");
   }
 
-  @Ignore
   @Test
   public void oneSquareWithMine() {
     Minesweeper board = new Minesweeper(1, 1);
@@ -50,7 +48,6 @@ public class MinesweeperTest {
     assertThat(solved, equalTo("*"));
   }
 
-  @Ignore
   @Test
   public void oneSquareWithNoMine() {
     Minesweeper board = new Minesweeper(1, 1);
