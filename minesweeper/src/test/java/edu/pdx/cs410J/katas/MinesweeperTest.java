@@ -11,42 +11,36 @@ import static org.hamcrest.core.IsEqual.equalTo;
  */
 public class MinesweeperTest {
 
-  @Ignore
   @Test(expected = ZeroSizedBoardException.class)
-  public void zeroSizedBoardThrowException() {
+  public void zeroSizedBoardThrowException() throws ZeroSizedBoardException {
     new Minesweeper(0, 0);
   }
 
-  @Ignore
   @Test(expected = ZeroSizedBoardException.class)
-  public void boardWithZeroRowsThrowsException() {
+  public void boardWithZeroRowsThrowsException() throws ZeroSizedBoardException {
     new Minesweeper(0, 5);
   }
 
-  @Ignore
   @Test(expected = ZeroSizedBoardException.class)
-  public void boardWithZeroColumnsThrowsException() {
+  public void boardWithZeroColumnsThrowsException() throws ZeroSizedBoardException {
     new Minesweeper(5, 0);
   }
 
-  @Ignore
   @Test(expected = RaggedBoardException.class)
-  public void raggedInputRowThrowsException() {
+  public void raggedInputRowThrowsException() throws RaggedBoardException, ZeroSizedBoardException{
     Minesweeper board = new Minesweeper(1, 2);
     board.addRow(".");
   }
 
-  @Ignore
   @Test(expected = RaggedBoardException.class)
-  public void raggedInputColumnThrowsException() {
+  public void raggedInputColumnThrowsException() throws RaggedBoardException, ZeroSizedBoardException{
     Minesweeper board = new Minesweeper(2, 1);
     board.addRow(".");
     board.addRow("..");
   }
 
-  @Ignore
   @Test
-  public void oneSquareWithMine() {
+  public void oneSquareWithMine() throws RaggedBoardException, ZeroSizedBoardException{
     Minesweeper board = new Minesweeper(1, 1);
     board.addRow("*");
 
@@ -54,9 +48,8 @@ public class MinesweeperTest {
     assertThat(solved, equalTo("*"));
   }
 
-  @Ignore
   @Test
-  public void oneSquareWithNoMine() {
+  public void oneSquareWithNoMine() throws RaggedBoardException, ZeroSizedBoardException{
     Minesweeper board = new Minesweeper(1, 1);
     board.addRow(".");
 
@@ -64,9 +57,8 @@ public class MinesweeperTest {
     assertThat(solved, equalTo("0"));
   }
 
-  @Ignore
   @Test
-  public void twoByTwoBoardWithMineAtZeroZero() {
+  public void twoByTwoBoardWithMineAtZeroZero() throws RaggedBoardException, ZeroSizedBoardException{
     Minesweeper board = new Minesweeper(2, 2);
     board.addRow("*.");
     board.addRow("..");
